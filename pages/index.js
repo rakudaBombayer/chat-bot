@@ -21,6 +21,7 @@ export default function Home() {
     e.preventDefault();
     setIsLoading(true);
 
+    // APIをたたく
    const response = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
       messages:[{role: "user", content: "ぼくはね、自分んのことが大好きなんですよ" }],
