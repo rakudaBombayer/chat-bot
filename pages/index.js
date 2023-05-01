@@ -57,8 +57,14 @@ export default function Home() {
           <span className="text-center block font-medium text-2x1 border-b-2 border-indigo-400">ジーニアス山崎</span>
 
         {messages.map((message) => (
-          <div className={`flex ${message.sender === "user" ? "justify-end" :"justify-start"} mb-2`} key={index}>
-            <div className="bg-indigo-400 text-white p-2 rounded-md">
+          <div className={`flex ${message.sender === "user" ? "justify-end" :"justify-start"} mb-2`} 
+          key={index}>
+
+
+
+            <div className={`${message.sender === "user" ? "bg-indigo-400" :"bg-gray-200"} text-white p-2 rounded-md`}
+            >
+
               {message.text}
             </div>
           </div>        
