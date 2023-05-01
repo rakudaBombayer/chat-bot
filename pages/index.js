@@ -23,7 +23,7 @@ export default function Home() {
 
    const response = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
-      messages:[{role: "user", content: "こんにちは" }],
+      messages:[{role: "user", content: "ぼくはね、自分んのことが大好きなんですよ" }],
     });
 
     setMessage((prevMessages) => [
@@ -62,7 +62,10 @@ export default function Home() {
 
 
 
-            <div className={`${message.sender === "user" ? "bg-indigo-400" :"bg-gray-200"} text-white p-2 rounded-md`}
+            <div className={`${message.sender === "user" 
+            ? "bg-indigo-400 text-white"
+            :"bg-gray-200" 
+            } p-2 rounded-md`}
             >
 
               {message.text}
