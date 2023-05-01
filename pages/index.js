@@ -1,9 +1,13 @@
 import Head from 'next/head';
-import React from 'react';
+import React, { use, useState } from 'react';
 import styles from '../styles/Home.module.css'; 
-import { Configuration,OpenAIApi } from 'openai';
+import { Configuration,OpenAIApi } from "openai";
 
 export default function Home() {
+  const [message,setMessage] = useState("");
+  const [messages,setMessages] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
 
   const configuration = new Configuration({
     apiKey: process.env.NEXT_PUBLIC_OPENAPI_KEY,
@@ -13,13 +17,14 @@ export default function Home() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
 
    const response = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
       messages:[{role: "user", content: "こんにちは" }],
     });
 
-    console.log(response);
+    console.log(response.choices[0].message?.content);
   };
 
 
@@ -51,7 +56,9 @@ export default function Home() {
         <form className="w-full" onSubmit={(e) => handleSubmit(e)}>
           <div className="flex item-center p-4 bg-gray-100 rounded-lg w-full">
             <input type="text" className="flex-1 border-2 py-2 px-4 focus:outline-none rounded-lg focus:border-indigo-400"></input>
-            <button type="submit" className="p-2 bg-indigo-400 rounded-lg text-white hover:bg-indigo-500">お悩み相談</button>
+            <button type="submit" className="p-2 bg-indigo-400 rounded-lg text-white hover:bg-indigo-500">
+              {isLoading ? "天才の解答待ち":"相談"}
+              </button>
           </div>
         </form>
 
