@@ -50,17 +50,18 @@ export default function Home() {
 
     <div className='flex flex-col items-center justify-center h-screen'>
       <div className="max-w-lg w-full">
+        
         <div
         style={{height: "650px"}}
         className='bg-gray-100 w-full p-4 h-96 overflow-scroll rounded-lg'>
           <span className="text-center block font-medium text-2x1 border-b-2 border-indigo-400">ジーニアス山崎</span>
 
-          {messages.map((message) => (
-            <div className="flex justify-end mb-2">
-              <div className="bg-indigo-400 text-white p-2 rounded-md">
-                {message}
-              </div>
-            </div>        
+        {messages.map((message) => (
+          <div className={`flex ${message.sender === "user" ? "justify-end" :"justify-start"} mb-2`} key={index}>
+            <div className="bg-indigo-400 text-white p-2 rounded-md">
+              {message.text}
+            </div>
+          </div>        
           ))}
         </div>
 
