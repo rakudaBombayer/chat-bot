@@ -19,10 +19,10 @@ export default function Home() {
           <span className="text-center block font-medium text-2x1 border-b-2 border-indigo-400">ジーニアス山崎</span>
 
           <div className="flex justify-end mb-2">
-            <div className="bg-indigo-400 text-white">hello</div>
+            <div className="bg-indigo-400 text-white p-2 rounded-md">hello</div>
           </div>
           <div className="flex justify-start mb-2">
-            <div>やっほー</div>
+            <div className="bg-gray-200 p-2 rounded-md">やっほー</div>
           </div>
         </div>
       </div>
