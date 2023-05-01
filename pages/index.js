@@ -24,7 +24,17 @@ export default function Home() {
       messages:[{role: "user", content: "こんにちは" }],
     });
 
-    console.log(response.choices[0].message?.content);
+    setMessage((prevMessages) => [
+      ...prevMessages,
+      {sender: "user", text: message },
+      {sender: "ai", text: response.choices[0].message?.content}
+    ]);
+
+    console.log(messages);
+
+    // console.log(response.choices[0].message?.content);
+
+    setIsLoading(false);
   };
 
 
@@ -55,9 +65,12 @@ export default function Home() {
 
         <form className="w-full" onSubmit={(e) => handleSubmit(e)}>
           <div className="flex item-center p-4 bg-gray-100 rounded-lg w-full">
-            <input type="text" className="flex-1 border-2 py-2 px-4 focus:outline-none rounded-lg focus:border-indigo-400"></input>
+            <input type="text" className="flex-1 border-2 py-2 px-4 focus:outline-none rounded-lg focus:border-indigo-400"
+            onChange={(e) => setMessage(e.target.value)}
+            value={message}
+            />
             <button type="submit" className="p-2 bg-indigo-400 rounded-lg text-white hover:bg-indigo-500">
-              {isLoading ? "天才の解答待ち":"相談"}
+              {isLoading ? "天才の回答待ち":"相談"}
               </button>
           </div>
         </form>
