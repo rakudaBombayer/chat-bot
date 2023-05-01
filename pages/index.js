@@ -25,6 +25,15 @@ export default function Home() {
             <div className="bg-gray-200 p-2 rounded-md">やっほー</div>
           </div>
         </div>
+
+
+
+        <form className="w-full">
+          <div>
+            <input type="text" className="border-2"></input>
+          </div>
+        </form>
+
       </div>
     </div>
   </div>
