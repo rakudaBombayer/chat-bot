@@ -56,7 +56,7 @@ export default function Home() {
         style={{height: "650px"}}
         className='bg-gray-100 w-full p-4 h-96 overflow-scroll rounded-lg'>
           <span className="text-center block font-medium text-2x1 border-b-2 border-indigo-400">ジーニアス山崎</span>
-
+        
         {messages.map((message) => (
           <div className={`flex ${message.sender === "user" ? "justify-end" :"justify-start"} mb-2`} 
           key={index}>
@@ -84,7 +84,7 @@ export default function Home() {
             value={message}
             />
             <button type="submit" className="p-2 bg-indigo-400 rounded-lg text-white hover:bg-indigo-500">
-              {isLoading ? "天才の回答待ち":"相談"}
+              {isLoading ? "天才の回答待ち":"お悩み相談"}
               </button>
           </div>
         </form>
@@ -94,3 +94,6 @@ export default function Home() {
   </div>
   );
 }
+
+
+
