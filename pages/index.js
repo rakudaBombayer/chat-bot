@@ -3,6 +3,8 @@ import React, { use, useState } from 'react';
 import styles from '../styles/Home.module.css'; 
 import { Configuration,OpenAIApi } from "openai";
 
+
+
 export default function Home() {
   const [message,setMessage] = useState("");
   const [messages,setMessages] = useState([]);
@@ -53,12 +55,13 @@ export default function Home() {
         className='bg-gray-100 w-full p-4 h-96 overflow-scroll rounded-lg'>
           <span className="text-center block font-medium text-2x1 border-b-2 border-indigo-400">ジーニアス山崎</span>
 
-          <div className="flex justify-end mb-2">
-            <div className="bg-indigo-400 text-white p-2 rounded-md">hello</div>
-          </div>
-          <div className="flex justify-start mb-2">
-            <div className="bg-gray-200 p-2 rounded-md">やっほー</div>
-          </div>
+          {messages.map((message) => (
+            <div className="flex justify-end mb-2">
+              <div className="bg-indigo-400 text-white p-2 rounded-md">
+                {message}
+              </div>
+            </div>        
+          ))}
         </div>
 
 
